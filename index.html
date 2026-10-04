@@ -14,6 +14,9 @@
 <meta property="og:description" content="Transforme tráfego em oportunidades e oportunidades em vendas. Análise estratégica da sua operação comercial.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://worki-digital-landing.vercel.app/img/herickson.jpg">
+<meta property="og:image:width" content="672">
+<meta property="og:image:height" content="840">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060A'/%3E%3Cpath d='M14 22l7 24h5l6-15 6 15h5l7-24h-6l-4 17-6-17h-4l-6 17-4-17z' fill='%23F5B000'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060A'/%3E%3Cpath d='M14 22l7 24h5l6-15 6 15h5l7-24h-6l-4 17-6-17h-4l-6 17-4-17z' fill='%23F5B000'/%3E%3C/svg%3E">
@@ -507,6 +510,53 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg)}
 .f-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
 .f-note{margin-top:32px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-4);line-height:1.65}
 
+
+/* ═══════════════ AUTORIDADE ═══════════════ */
+.who{
+  display:grid; grid-template-columns:.78fr 1.22fr;
+  gap:clamp(32px,5vw,68px); align-items:center;
+}
+@media(max-width:940px){.who{grid-template-columns:1fr}}
+
+.who-photo{position:relative}
+.who-frame{
+  position:relative;border-radius:var(--r-l);overflow:hidden;
+  border:1px solid var(--line-2);background:var(--surface);
+  box-shadow:0 30px 70px rgba(0,0,0,.6);
+}
+.who-frame img{
+  width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover;
+}
+.who-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 52%,rgba(5,6,10,.55) 88%,#05060A 100%);
+}
+.who-tag{
+  position:absolute;left:18px;bottom:18px;z-index:2;
+  display:flex;align-items:center;gap:9px;
+  background:rgba(5,6,10,.72);backdrop-filter:blur(10px);
+  border:1px solid var(--gold-line);border-radius:100px;padding:8px 15px;
+}
+.who-tag .dt{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+.who-tag span{font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+
+.who-name{
+  font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--ink);
+  letter-spacing:-.03em;margin-bottom:4px;
+}
+.who-role{
+  font-size:14px;color:var(--gold);font-weight:600;
+  letter-spacing:.04em;margin-bottom:22px;
+}
+.who-text{font-size:16px;color:var(--ink-3);max-width:56ch}
+.who-points{margin-top:28px;display:grid;gap:13px}
+.who-points li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink-3)}
+.who-points .ck{
+  flex:none;width:19px;height:19px;border-radius:50%;margin-top:1px;
+  background:var(--gold-dim);border:1px solid var(--gold-line);
+  display:grid;place-items:center;color:var(--gold);font-size:10px;font-weight:900;
+}
+
 /* ═══════════════ CTA FIXO MOBILE ═══════════════ */
 .sticky{
   position:fixed;left:0;right:0;bottom:0;z-index:300;
@@ -543,6 +593,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg)}
       <a href="#solucao">Solução</a>
       <a href="#metodo">Método</a>
       <a href="#diferencial">Diferencial</a>
+      <a href="#quem">Quem somos</a>
       <a href="#analise">Análise</a>
     </nav>
     <a href="#analise" class="btn btn-gold">Solicitar análise</a>
@@ -780,6 +831,41 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg)}
     <div class="ideal rv">
       <div class="lb">Perfil recomendado</div>
       <div class="vl">Empresas faturando acima de R$ 60 mil/mês</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ AUTORIDADE ══════════ -->
+<section id="quem" class="alt" style="border-block:1px solid var(--line)">
+  <div class="wrap who">
+    <div class="who-photo rv">
+      <div class="who-frame">
+        <picture>
+          <source srcset="img/herickson.webp" type="image/webp">
+          <img src="img/herickson.jpg"
+               alt="Herickson Maia, fundador da Worki Digital"
+               width="672" height="840"
+               loading="lazy" decoding="async" fetchpriority="low">
+        </picture>
+        <div class="who-tag"><span class="dt"></span><span>Fundador</span></div>
+      </div>
+    </div>
+
+    <div class="rv">
+      <span class="eyebrow">Quem cuida da operação</span>
+      <div class="who-name">Herickson Maia</div>
+      <div class="who-role">Worki Digital</div>
+      <p class="who-text">
+        Análise de aquisição, performance e vendas não se faz olhando um painel.
+        Faz se entendendo onde o lead entra, quanto tempo leva até alguém responder,
+        e o que acontece quando a resposta não vem.
+      </p>
+      <ul class="who-points">
+        <li><span class="ck" aria-hidden="true">✓</span><span>A mesma pessoa que lê os números entra na conversa</span></li>
+        <li><span class="ck" aria-hidden="true">✓</span><span>Diagnóstico antes de proposta — e sem proposta sem diagnóstico</span></li>
+        <li><span class="ck" aria-hidden="true">✓</span><span>A operação inteira como objeto de trabalho, não só a campanha</span></li>
+      </ul>
     </div>
   </div>
 </section>
