@@ -1,0 +1,15 @@
+{
+  "name": "ponte-hermes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ponte entre a sessao efemera do Hermes e um agente no PC do dono",
+  "scripts": {
+    "start": "node servidor.js",
+    "montar": "node ../montar.js",
+    "testar": "node ../testar_leads.js && node ../testar_webhook.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

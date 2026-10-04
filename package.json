@@ -1,0 +1,14 @@
+{
+  "name": "worki-digital-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "montar": "node montar.js",
+    "testar": "node montar.js && node testar_leads.js && node testar_webhook.js",
+    "dev": "vercel dev"
+  }
+}

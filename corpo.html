@@ -1,0 +1,665 @@
+/* Corpo da landing page Worki Digital.
+
+   O texto segue exatamente o que o dono passou. Nenhum numero, cliente
+   ou depoimento alem dos quatro indicadores informados.
+*/
+
+<header class="topo">
+  <div class="container topo__interno">
+    <a class="logo" href="#topo">
+      <span class="logo__marca" aria-hidden="true">W</span>
+      <span>Worki Digital</span>
+    </a>
+    <nav class="topo__links" aria-label="Navegação principal">
+      <a href="#solucao">Solução</a>
+      <a href="#metodo">Método</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#diferencial">Diferencial</a>
+    </nav>
+    <a class="btn btn--primario" href="#analise" style="min-height:42px;padding:10px 18px;font-size:14px;">
+      Solicitar análise
+    </a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__fundo" aria-hidden="true">
+    <div class="hero__grade"></div>
+    <div class="hero__brilho"></div>
+  </div>
+
+  <div class="container hero__conteudo">
+    <span class="selo">Aceleração de vendas</span>
+
+    <h1>
+      Você não precisa apenas de mais leads.
+      Precisa de uma <span class="realce">operação</span> que transforme
+      oportunidades em vendas.
+    </h1>
+
+    <p class="hero__sub">
+      A Worki Digital combina Tráfego Pago, Performance, CRM, Automação e
+      Inteligência Artificial para ajudar empresas a construírem uma máquina
+      de aquisição e vendas mais previsível.
+    </p>
+
+    <p class="hero__nota">
+      Preencha o formulário e nossa equipe entrará em contato para entender
+      sua operação.
+    </p>
+
+    <div class="hero__acoes">
+      <a class="btn btn--primario btn--grande" href="#analise" data-cta="hero">
+        Quero uma análise da minha operação
+      </a>
+    </div>
+  </div>
+
+  <!-- Painel visual: dashboard, curva e fluxo do processo -->
+  <div class="container">
+    <div class="painel">
+      <div class="painel__barra" aria-hidden="true">
+        <span class="painel__ponto"></span>
+        <span class="painel__ponto"></span>
+        <span class="painel__ponto"></span>
+        <span class="painel__titulo">visão geral da operação comercial</span>
+      </div>
+
+      <div class="painel__corpo">
+        <div class="painel__bloco">
+          <svg class="grafico" viewBox="0 0 420 200" role="img"
+               aria-label="Curva de crescimento de receita ao longo de seis meses">
+            <defs>
+              <linearGradient id="gradienteGrafico" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f5b000" stop-opacity=".28"/>
+                <stop offset="100%" stop-color="#f5b000" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <line class="grafico__eixo" x1="34" y1="172" x2="404" y2="172"/>
+            <line class="grafico__eixo" x1="34" y1="126" x2="404" y2="126"/>
+            <line class="grafico__eixo" x1="34" y1="80" x2="404" y2="80"/>
+            <line class="grafico__eixo" x1="34" y1="34" x2="404" y2="34"/>
+
+            <path class="grafico__area"
+                  d="M34 172 L100 158 L166 140 L232 118 L298 82 L404 30 L404 172 Z"/>
+            <path class="grafico__linha"
+                  d="M34 172 L100 158 L166 140 L232 118 L298 82 L404 30"/>
+
+            <circle class="grafico__ponto" cx="34"  cy="172" r="3.5" style="animation-delay:.3s"/>
+            <circle class="grafico__ponto" cx="100" cy="158" r="3.5" style="animation-delay:.5s"/>
+            <circle class="grafico__ponto" cx="166" cy="140" r="3.5" style="animation-delay:.7s"/>
+            <circle class="grafico__ponto" cx="232" cy="118" r="3.5" style="animation-delay:.9s"/>
+            <circle class="grafico__ponto" cx="298" cy="82"  r="3.5" style="animation-delay:1.1s"/>
+            <circle class="grafico__ponto" cx="404" cy="30"  r="4.5" style="animation-delay:1.3s"/>
+          </svg>
+        </div>
+
+        <div class="mini-stats">
+          <div class="mini-stat">
+            <div class="mini-stat__rotulo">Campanhas</div>
+            <div class="mini-stat__valor">ativas</div>
+            <div class="mini-stat__nota">Meta e Google Ads</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat__rotulo">CRM</div>
+            <div class="mini-stat__valor">pipeline</div>
+            <div class="mini-stat__nota">organizado</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat__rotulo">Follow-up</div>
+            <div class="mini-stat__valor">automatizado</div>
+            <div class="mini-stat__nota">WhatsApp</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat__rotulo">Agentes</div>
+            <div class="mini-stat__valor">com IA</div>
+            <div class="mini-stat__nota">qualificação</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fluxo" aria-hidden="true">
+        <span class="fluxo__no fluxo__no--ativo">anúncio</span>
+        <span class="fluxo__seta">→</span>
+        <span class="fluxo__no">lead</span>
+        <span class="fluxo__seta">→</span>
+        <span class="fluxo__no">CRM</span>
+        <span class="fluxo__seta">→</span>
+        <span class="fluxo__no">atendimento</span>
+        <span class="fluxo__seta">→</span>
+        <span class="fluxo__no">follow-up</span>
+        <span class="fluxo__seta">→</span>
+        <span class="fluxo__no">venda</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDICADORES ============ -->
+<section class="indicadores">
+  <div class="container">
+    <div class="indicadores__grade">
+      <div class="indicador">
+        <div class="indicador__valor">+R$ 5 milhões</div>
+        <div class="indicador__rotulo">em mídia gerenciada</div>
+      </div>
+      <div class="indicador">
+        <div class="indicador__valor">+R$ 13 milhões</div>
+        <div class="indicador__rotulo">em faturamento gerado em projetos atendidos</div>
+      </div>
+      <div class="indicador">
+        <div class="indicador__valor">+70 projetos</div>
+        <div class="indicador__rotulo">participaram da nossa operação</div>
+      </div>
+      <div class="indicador">
+        <div class="indicador__valor">4+ anos</div>
+        <div class="indicador__rotulo">atuando com tráfego e performance</div>
+      </div>
+    </div>
+    <p class="indicadores__ressalva">
+      Resultados variam conforme operação, mercado, oferta, investimento e
+      execução comercial de cada empresa.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROBLEMA ============ -->
+<section class="secao problema">
+  <div class="container">
+    <div class="secao__cabecalho">
+      <div class="elo">O diagnóstico</div>
+      <h2>Seu problema pode não ser falta de tráfego.</h2>
+      <p>
+        Muitas empresas aumentam o investimento em anúncios, mas continuam
+        enfrentando problemas como:
+      </p>
+    </div>
+
+    <div class="problema__grade">
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Leads que entram e não recebem acompanhamento.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Vendedores demorando para responder.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Oportunidades esquecidas no WhatsApp.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Campanhas sem rastreamento adequado.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Ausência de CRM.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Falta de follow-up.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Dificuldade para identificar quais campanhas realmente geram vendas.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Dependência de processos manuais.</p>
+      </div>
+      <div class="problema__item">
+        <span class="problema__marcador" aria-hidden="true">→</span>
+        <p>Marketing e comercial trabalhando separados.</p>
+      </div>
+    </div>
+
+    <div class="destaque">
+      <p>
+        Colocar mais dinheiro em anúncios dentro de uma operação
+        desorganizada apenas aumenta o desperdício.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUCAO ============ -->
+<section class="secao" id="solucao">
+  <div class="container">
+    <div class="secao__cabecalho">
+      <div class="elo">A solução</div>
+      <h2>Nós conectamos marketing, vendas e tecnologia.</h2>
+      <p>
+        Quatro frentes que operam juntas. Isolar qualquer uma delas é o que
+        costuma fazer o investimento não chegar no faturamento.
+      </p>
+    </div>
+
+    <div class="grade-4">
+      <article class="cartao">
+        <div class="cartao__icone" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>
+          </svg>
+        </div>
+        <h3>Tráfego &amp; Aquisição</h3>
+        <ul>
+          <li>Meta Ads</li>
+          <li>Google Ads</li>
+          <li>Estratégia de campanhas</li>
+          <li>Remarketing</li>
+          <li>Criativos</li>
+          <li>Testes de ofertas</li>
+        </ul>
+      </article>
+
+      <article class="cartao">
+        <div class="cartao__icone" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+          </svg>
+        </div>
+        <h3>Performance</h3>
+        <ul>
+          <li>Análise de métricas</li>
+          <li>Otimização de campanhas</li>
+          <li>Funis</li>
+          <li>Páginas</li>
+          <li>Tracking</li>
+          <li>Mensuração de vendas</li>
+        </ul>
+      </article>
+
+      <article class="cartao">
+        <div class="cartao__icone" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M3 9h18M8 9v11"/>
+          </svg>
+        </div>
+        <h3>CRM &amp; Comercial</h3>
+        <ul>
+          <li>Pipeline de vendas</li>
+          <li>Gestão de oportunidades</li>
+          <li>Follow-up</li>
+          <li>Distribuição de leads</li>
+          <li>Indicadores comerciais</li>
+          <li>Organização do processo de vendas</li>
+        </ul>
+      </article>
+
+      <article class="cartao">
+        <div class="cartao__icone" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <h3>Automação &amp; IA</h3>
+        <ul>
+          <li>WhatsApp</li>
+          <li>Agentes de IA</li>
+          <li>Automação de atendimento</li>
+          <li>Qualificação automática</li>
+          <li>Reativação de leads</li>
+          <li>Integrações entre sistemas</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METODO ============ -->
+<section class="secao metodo" id="metodo">
+  <div class="container">
+    <div class="secao__cabecalho">
+      <div class="elo">O método</div>
+      <h2>Método Aceleração de Vendas</h2>
+      <p>Não olhamos apenas para o anúncio. Analisamos todo o caminho entre investimento e faturamento.</p>
+    </div>
+
+    <div class="etapas">
+      <article class="etapa">
+        <div class="etapa__numero">01</div>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos operação, oferta, canais, investimento, comercial e principais gargalos.</p>
+      </article>
+      <article class="etapa">
+        <div class="etapa__numero">02</div>
+        <h3>Estratégia</h3>
+        <p>Definimos aquisição, posicionamento, funil, campanhas e indicadores.</p>
+      </article>
+      <article class="etapa">
+        <div class="etapa__numero">03</div>
+        <h3>Aquisição</h3>
+        <p>Colocamos as campanhas para gerar demanda e novas oportunidades.</p>
+      </article>
+      <article class="etapa">
+        <div class="etapa__numero">04</div>
+        <h3>Conversão</h3>
+        <p>Organizamos CRM, atendimento, pipeline e follow-up.</p>
+      </article>
+      <article class="etapa">
+        <div class="etapa__numero">05</div>
+        <h3>Automação</h3>
+        <p>Implementamos processos para reduzir trabalho manual e oportunidades perdidas.</p>
+      </article>
+      <article class="etapa">
+        <div class="etapa__numero">06</div>
+        <h3>Otimização</h3>
+        <p>Analisamos dados continuamente para identificar gargalos e novas oportunidades de crescimento.</p>
+      </article>
+    </div>
+
+    <div class="trilho">
+      <div class="trilho__linha">
+        <div class="trilho__no"><b>Anúncio</b><span>investimento</span></div>
+        <span class="trilho__seta" aria-hidden="true">→</span>
+        <div class="trilho__no"><b>Lead</b><span>primeiro contato</span></div>
+        <span class="trilho__seta" aria-hidden="true">→</span>
+        <div class="trilho__no"><b>CRM</b><span>registro e pipeline</span></div>
+        <span class="trilho__seta" aria-hidden="true">→</span>
+        <div class="trilho__no"><b>Atendimento</b><span>conversa e proposta</span></div>
+        <span class="trilho__seta" aria-hidden="true">→</span>
+        <div class="trilho__no"><b>Follow-up</b><span>retomada ativa</span></div>
+        <span class="trilho__seta" aria-hidden="true">→</span>
+        <div class="trilho__no trilho__no--destaque"><b>Venda</b><span>faturamento</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM E ============ -->
+<section class="secao" id="para-quem">
+  <div class="container">
+    <div class="secao__cabecalho">
+      <div class="elo">Para quem é</div>
+      <h2>A Worki Digital é para empresas que já querem tratar marketing como investimento.</h2>
+    </div>
+
+    <ul class="checklist">
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Negócios locais</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Clínicas</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Empresas de serviços</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Operações B2B</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Empresas high ticket</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Óticas</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Centros automotivos</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Oficinas</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Arquitetura</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Móveis</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Empresas com equipe comercial</li>
+      <li><span class="checklist__ok" aria-hidden="true">✓</span> Negócios que já investem ou pretendem investir consistentemente em aquisição</li>
+    </ul>
+
+    <div class="perfil">
+      <div class="perfil__rotulo">Perfil recomendado</div>
+      <div class="perfil__valor">Empresas faturando acima de R$ 60 mil/mês.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAL ============ -->
+<section class="secao problema" id="diferencial">
+  <div class="container">
+    <div class="secao__cabecalho">
+      <div class="elo">O diferencial</div>
+      <h2>Uma operação. Não cinco fornecedores diferentes.</h2>
+    </div>
+
+    <div class="comparacao">
+      <div class="comparacao__coluna">
+        <div class="comparacao__rotulo">Modelo tradicional</div>
+        <ul class="comparacao__lista">
+          <li>Agência de tráfego</li>
+          <li>Fornecedor do CRM</li>
+          <li>Empresa de automação</li>
+          <li>Equipe comercial</li>
+          <li>Fornecedor de IA</li>
+        </ul>
+        <div class="comparacao__resultado">
+          <b>Resultado</b>
+          Dados fragmentados e ninguém olhando a operação inteira.
+        </div>
+      </div>
+
+      <div class="comparacao__coluna comparacao__coluna--destaque">
+        <div class="comparacao__rotulo">Worki Digital</div>
+        <ul class="comparacao__lista">
+          <li>Tráfego</li>
+          <li>Performance</li>
+          <li>CRM</li>
+          <li>Automação</li>
+          <li>IA</li>
+        </ul>
+        <div class="comparacao__resultado">
+          <b>Resultado</b>
+          Uma estratégia integrada entre aquisição e vendas.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULARIO ============ -->
+<section class="secao formulario-secao" id="analise">
+  <div class="container" style="max-width:660px">
+
+    <div class="secao__cabecalho">
+      <div class="elo">Qualificação</div>
+      <h2>Antes de falar com a nossa equipe, precisamos entender sua operação.</h2>
+      <p>Cinco perguntas rápidas. Leva menos de dois minutos.</p>
+    </div>
+
+    <div class="form-caixa">
+      <div class="form-erro" id="erro-geral" role="alert"></div>
+
+      <form id="form-analise" novalidate>
+
+        <div class="progresso">
+          <div class="progresso__rotulo">
+            <span>Etapa <span id="etapa-num" class="progresso__atual">1</span> de 5</span>
+            <span id="etapa-nome"></span>
+          </div>
+          <div class="progresso__trilho">
+            <div class="progresso__barra" id="progresso-barra"></div>
+          </div>
+        </div>
+
+        <!-- ETAPA 1 -->
+        <fieldset class="grupo ativo" data-etapa="1">
+          <legend class="grupo__titulo">Vamos começar por você</legend>
+
+          <div class="campo">
+            <label for="nome">Qual seu nome?</label>
+            <input type="text" id="nome" name="nome" autocomplete="name"
+                   maxlength="120" required>
+            <div class="campo__erro" id="erro-nome"></div>
+          </div>
+
+          <div class="campo">
+            <label for="whatsapp">
+              Qual seu WhatsApp? <span class="dica">com DDD</span>
+            </label>
+            <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel"
+                   inputmode="numeric" placeholder="(85) 99999-9999"
+                   maxlength="20" required>
+            <div class="campo__erro" id="erro-whatsapp"></div>
+          </div>
+        </fieldset>
+
+        <!-- ETAPA 2 -->
+        <fieldset class="grupo" data-etapa="2">
+          <legend class="grupo__titulo">Sobre a empresa</legend>
+
+          <div class="campo">
+            <label for="empresa">Qual o nome da sua empresa?</label>
+            <input type="text" id="empresa" name="empresa"
+                   autocomplete="organization" maxlength="160" required>
+            <div class="campo__erro" id="erro-empresa"></div>
+          </div>
+
+          <div class="campo">
+            <label for="segmento">Qual o segmento da sua empresa?</label>
+            <input type="text" id="segmento" name="segmento"
+                   placeholder="Ex.: clínica, oficina, arquitetura, serviços"
+                   maxlength="160" required>
+            <div class="campo__erro" id="erro-segmento"></div>
+          </div>
+        </fieldset>
+
+        <!-- ETAPA 3 -->
+        <fieldset class="grupo" data-etapa="3">
+          <legend class="grupo__titulo">
+            Qual o faturamento médio mensal da sua empresa?
+          </legend>
+          <div class="opcoes opcoes--2" role="radiogroup" aria-label="Faturamento mensal">
+            <label class="opcao"><input type="radio" name="faturamento" value="Até R$ 30 mil"><span class="opcao__marca"></span>Até R$ 30 mil</label>
+            <label class="opcao"><input type="radio" name="faturamento" value="R$ 30 mil a R$ 60 mil"><span class="opcao__marca"></span>R$ 30 mil a R$ 60 mil</label>
+            <label class="opcao"><input type="radio" name="faturamento" value="R$ 60 mil a R$ 100 mil"><span class="opcao__marca"></span>R$ 60 mil a R$ 100 mil</label>
+            <label class="opcao"><input type="radio" name="faturamento" value="R$ 100 mil a R$ 300 mil"><span class="opcao__marca"></span>R$ 100 mil a R$ 300 mil</label>
+            <label class="opcao"><input type="radio" name="faturamento" value="R$ 300 mil a R$ 500 mil"><span class="opcao__marca"></span>R$ 300 mil a R$ 500 mil</label>
+            <label class="opcao"><input type="radio" name="faturamento" value="Acima de R$ 500 mil"><span class="opcao__marca"></span>Acima de R$ 500 mil</label>
+          </div>
+          <div class="campo__erro" id="erro-faturamento"></div>
+        </fieldset>
+
+        <!-- ETAPA 4 -->
+        <fieldset class="grupo" data-etapa="4">
+          <legend class="grupo__titulo">
+            Quanto sua empresa investe atualmente em marketing e tráfego pago?
+          </legend>
+          <div class="opcoes opcoes--2" role="radiogroup" aria-label="Investimento atual em marketing">
+            <label class="opcao"><input type="radio" name="investimento" value="Ainda não investe"><span class="opcao__marca"></span>Ainda não investe</label>
+            <label class="opcao"><input type="radio" name="investimento" value="Até R$ 3 mil/mês"><span class="opcao__marca"></span>Até R$ 3 mil/mês</label>
+            <label class="opcao"><input type="radio" name="investimento" value="R$ 3 mil a R$ 10 mil/mês"><span class="opcao__marca"></span>R$ 3 mil a R$ 10 mil/mês</label>
+            <label class="opcao"><input type="radio" name="investimento" value="R$ 10 mil a R$ 30 mil/mês"><span class="opcao__marca"></span>R$ 10 mil a R$ 30 mil/mês</label>
+            <label class="opcao"><input type="radio" name="investimento" value="R$ 30 mil a R$ 50 mil/mês"><span class="opcao__marca"></span>R$ 30 mil a R$ 50 mil/mês</label>
+            <label class="opcao"><input type="radio" name="investimento" value="Acima de R$ 50 mil/mês"><span class="opcao__marca"></span>Acima de R$ 50 mil/mês</label>
+          </div>
+          <div class="campo__erro" id="erro-investimento"></div>
+        </fieldset>
+
+        <!-- ETAPA 5 -->
+        <fieldset class="grupo" data-etapa="5">
+          <legend class="grupo__titulo">
+            Qual é hoje o principal gargalo da sua operação?
+          </legend>
+          <div class="opcoes" role="radiogroup" aria-label="Principal gargalo da operação">
+            <label class="opcao"><input type="radio" name="gargalo" value="Gerar mais leads"><span class="opcao__marca"></span>Gerar mais leads</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Melhorar a qualidade dos leads"><span class="opcao__marca"></span>Melhorar a qualidade dos leads</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Aumentar conversão em vendas"><span class="opcao__marca"></span>Aumentar conversão em vendas</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Estruturar CRM"><span class="opcao__marca"></span>Estruturar CRM</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Melhorar acompanhamento dos leads"><span class="opcao__marca"></span>Melhorar acompanhamento dos leads</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Automatizar atendimento"><span class="opcao__marca"></span>Automatizar atendimento</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Implementar IA"><span class="opcao__marca"></span>Implementar IA</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Mensurar melhor marketing e vendas"><span class="opcao__marca"></span>Mensurar melhor marketing e vendas</label>
+            <label class="opcao"><input type="radio" name="gargalo" value="Outro"><span class="opcao__marca"></span>Outro</label>
+          </div>
+          <div class="campo__erro" id="erro-gargalo"></div>
+
+          <div class="campo" id="campo-outro" style="display:none;margin-top:18px">
+            <label for="gargalo_outro">Conte o que é o gargalo</label>
+            <input type="text" id="gargalo_outro" name="gargalo_outro" maxlength="300">
+          </div>
+
+          <div class="campo" style="margin-top:22px">
+            <label for="meta_90_dias">Qual sua principal meta para os próximos 90 dias?</label>
+            <textarea id="meta_90_dias" name="meta_90_dias" maxlength="600"
+                      placeholder="Ex.: aumentar o faturamento, organizar o time comercial, recuperar oportunidades perdidas..."></textarea>
+            <div class="campo__erro" id="erro-meta"></div>
+          </div>
+        </fieldset>
+
+        <div class="form-navegacao">
+          <button type="button" class="btn btn--secundario" id="btn-voltar" style="display:none">
+            Voltar
+          </button>
+          <button type="button" class="btn btn--primario" id="btn-avancar">
+            Continuar
+          </button>
+        </div>
+
+        <p class="form-privacidade">
+          Seus dados são usados apenas para entrarmos em contato sobre esta
+          análise. Esta página não pede dados de cartão e não realiza pagamento.
+        </p>
+      </form>
+
+      <!-- SUCESSO: so aparece depois que o lead foi salvo -->
+      <div id="tela-sucesso" style="display:none">
+        <div class="sucesso">
+          <div class="sucesso__marca" aria-hidden="true">✓</div>
+          <h2>Cadastro recebido.</h2>
+          <p>
+            Agora fale com nossa equipe pelo WhatsApp para continuar sua análise.
+          </p>
+
+          <dl class="sucesso__resumo" id="resumo-lead"></dl>
+
+          <div class="sucesso__acoes">
+            <a class="btn btn--primario btn--grande" id="btn-whatsapp" href="#">
+              Falar com a Worki Digital
+            </a>
+            <button type="button" class="btn btn--secundario" id="btn-reiniciar">
+              Corrigir dados
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Quanto dinheiro sua empresa está deixando na mesa entre o clique e a venda?</h2>
+    <p>
+      A Worki Digital analisa aquisição, atendimento, CRM, follow-up,
+      automação e vendas para identificar onde estão os principais gargalos
+      da sua operação.
+    </p>
+    <a class="btn btn--primario btn--grande" href="#analise" data-cta="final">
+      Quero uma análise da minha operação
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__topo">
+      <div class="logo" style="color:var(--branco)">
+        <span class="logo__marca" aria-hidden="true">W</span>
+        <span>Worki Digital</span>
+      </div>
+      <nav class="rodape__links" aria-label="Navegação do rodapé">
+        <a href="#solucao">Solução</a>
+        <a href="#metodo">Método</a>
+        <a href="#para-quem">Para quem é</a>
+        <a href="#analise">Solicitar análise</a>
+      </nav>
+    </div>
+    <div class="rodape__linha">
+      <span>© <span id="ano">2026</span> Worki Digital</span>
+      <span>Resultados variam conforme operação, mercado, oferta, investimento e execução comercial.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CTA fixo: aparece depois da primeira dobra, so no mobile -->
+<div class="cta-fixo" id="cta-fixo">
+  <a class="btn btn--primario" href="#analise" data-cta="fixo">
+    Solicitar análise
+  </a>
+</div>

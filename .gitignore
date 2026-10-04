@@ -1,10 +1,20 @@
-node_modules/
-dist/
-.vercel
+# Segredos e dados de lead: nunca vao para o repositorio.
 .env
-.env.local
+.env.*
+!.env.example
+
+# Leads capturados pela landing page. Sao dados pessoais de terceiros:
+# nome, telefone, empresa, e-mail. Git nao e lugar para isso.
+privado/
+*.jsonl
+leads*.json
+*.csv
+
+# Dependencias e cache da Vercel
+node_modules/
+.vercel/
+
+# Ruido
 *.log
 .DS_Store
-
-.vercel
-recorte.html
+__pycache__/
