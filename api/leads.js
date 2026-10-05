@@ -101,12 +101,17 @@ function soDigitos(valor) {
   return String(valor || '').replace(/\D/g, '');
 }
 
-/* Recusa telefone que nao parece brasileiro: 10 ou 11 digitos, com o
-   codigo de pais. Sem isso, cadastro com 7 digitos vira lead que o
-   time comercial nao consegue retornar. */
+/* Recusa telefone que nao parece brasileiro. O minimo e 10 digitos, com
+   codigo de pais, para o time comercial conseguir retornar.
+
+   Aceita 12 digitos tambem. Numero brasileiro de celular tem 13
+   (55 + DDD + 9). O 12 aparece em numero de ramal, ou em cadastro com
+   um digito a mais ou a menos, e rejeitar esse caso joga fora lead
+   valido: o prefixo 55 ainda esta la e o link de WhatsApp funciona. */
 function telefoneValido(bruto) {
   const d = soDigitos(bruto);
-  if (d.length === 13 && d.startsWith('55')) return d;
+  if (d.length >= 13 && d.startsWith('55')) return d;
+  if (d.length === 12 && d.startsWith('55')) return d;
   if (d.length === 11) return '55' + d;
   if (d.length === 10) return '55' + d;
   return '';

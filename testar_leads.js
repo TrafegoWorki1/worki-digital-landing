@@ -74,6 +74,28 @@ r = respostaFalsa();
 await handler({ method: 'POST', body: { ...valido, telefone: undefined, whatsapp: '123' } }, r);
 teste('sem telefone: 400', r.statusCode === 400, `veio ${r.statusCode}`);
 
+// Numero de 12 digitos comecando em 55: era barrado e quebrava lead
+// valido. O prefixo do pais esta la e o link funciona.
+//
+// Confere o arquivo gravado, e nao a resposta: o link de WhatsApp vai
+// para WHATSAPP_NUMBER (numero de destino), nao para o telefone do lead.
+const { readFile: lerArquivo } = await import('node:fs/promises');
+const ARQUIVO = process.env.LEADS_DIR
+  ? process.env.LEADS_DIR + '/leads.jsonl'
+  : '/tmp/worki-leads/leads.jsonl';
+
+for (const numero of ['558592494552', '558598888777', '5585924945521']) {
+  r = respostaFalsa();
+  await handler({ method: 'POST', body: { ...valido, whatsapp: numero } }, r);
+  teste(`12 digitos aceito: ${numero}`,
+    r.statusCode === 200 && r.corpo.salvo === true, `veio ${r.statusCode}`);
+
+  const linhas = (await lerArquivo(ARQUIVO, 'utf8')).trim().split('\n').filter(Boolean);
+  const ultimo = JSON.parse(linhas[linhas.length - 1]);
+  teste(`12 digitos gravados inteiros: ${numero}`,
+    ultimo.whatsapp === numero, ultimo.whatsapp);
+}
+
 r = respostaFalsa();
 await handler({ method: 'GET', body: {} }, r);
 teste('GET: 405', r.statusCode === 405, `veio ${r.statusCode}`);
