@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Worki Digital - Aceleração de Vendas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-main: #080808;
+    --bg-secondary: #111111;
+    --primary: #F5B000;
+    --text-main: #FFFFFF;
+    --text-secondary: #cccccc;
+    --border-radius: 12px;
+    --transition: 0.3s ease;
+    --font-family: 'Inter', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color:inherit; text-decoration:none; }
+  .container { width:90%; max-width:1200px; margin:0 auto; padding:0 1rem; }
+  /* Header */
+  header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.5rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .logo { font-weight:700; font-size:1.2rem; letter-spacing:0.5px; }
+  .header-cta {
+    background:var(--primary);
+    color:#080808;
+    border:none;
+    padding:0.75rem 1.5rem;
+    border-radius:var(--border-radius);
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
+  }
+  .header-cta:hover { opacity:0.9; }
+  /* Mobile fixed CTA */
+  .mobile-fixed-cta {
+    display:none;
+    position:fixed;
+    bottom:1rem;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--primary);
+    color:#080808;
+    border:none;
+    padding:0.75rem 1.5rem;
+    border-radius:var(--border-radius);
+    font-weight:600;
+    z-index:1000;
+  }
+  @media (max-width:768px) {
+    .mobile-fixed-cta { display:block; }
+  }
+  /* Sections */
+  section { padding:6rem 0; min-height:100vh; display:flex; align-items:center; }
+  .hero {
+    text-align:center;
+    position:relative;
+  }
+  .hero .badge {
+    display:inline-block;
+    background:rgba(245,176,0,0.1);
+    color:var(--primary);
+    font-size:0.875rem;
+    font-weight:600;
+    padding:0.25rem 0.75rem;
+    border-radius:20px;
+    margin-bottom:1rem;
+    letter-spacing:0.5px;
+  }
+  .hero h1 {
+    font-size:2.5rem;
+    font-weight:700;
+    margin-bottom:0.5rem;
+    line-height:1.2;
+  }
+  .hero h1 span { display:block; }
+  .hero p {
+    font-size:1.125rem;
+    color:var(--text-secondary);
+    max-width:600px;
+    margin:0 auto 2rem;
+  }
+  .hero .cta-btn {
+    background:var(--primary);
+    color:#080808;
+    border:none;
+    padding:1rem 2rem;
+    font-size:1rem;
+    font-weight:600;
+    border-radius:var(--border-radius);
+    cursor:pointer;
+    transition:var(--transition);
+    box-shadow:0 4px 12px rgba(245,176,0,0.3);
+  }
+  .hero .cta-btn:hover { opacity:0.9; transform:translateY(-2px); }
+  .hero .cta-subtext {
+    display:block;
+    margin-top:0.75rem;
+    font-size:0.875rem;
+    color:var(--text-secondary);
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero .flow {
+    margin-top:3rem;
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    align-items:flex-end;
+  }
+  .hero .flow .step {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .hero .flow .step .icon {
+    width:40px;
+    height:40px;
+    background:var(--bg-secondary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    color:var(--primary);
+  }
+  .hero .flow .step .label {
+    font-size:0.875rem;
+    color:var(--text-secondary);
+    text-align:center;
+  }
+  .hero .flow .line {
+    width:2px;
+    height:40px;
+    background:var(--primary);
+    margin:0 0.5rem;
+  }
+  /* Problem + Solution */
+  .problem {
+    background:var(--bg-secondary);
+    border-radius:var(--border-radius);
+    padding:2.5rem;
+    text-align:center;
+  }
+  .problem h2 {
+    font-size:2rem;
+    margin-bottom:1.5rem;
+    position:relative;
+    display:inline-block;
+  }
+  .problem h2::after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-0.5rem;
+    height:3px;
+    width:50px;
+    background:var(--primary);
+  }
+  .problem p {
+    color:var(--text-secondary);
+    margin-bottom:2rem;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .problem ul {
+    text-align:left;
+    max-width:500px;
+    margin:0 auto 2rem;
+    font-size:1rem;
+    color:var(--text-secondary);
+    line-height:1.8;
+  }
+  .problem ul li {
+    margin-bottom:0.5rem;
+    position:relative;
+    padding-left:1.5rem;
+  }
+  .problem ul li::before {
+    content:'→';
+    position:absolute;
+    left:0;
+    color:var(--primary);
+  }
+  .problem .highlight {
+    display:inline-block;
+    background:rgba(245,176,0,0.1);
+    color:var(--primary);
+    padding:0.25rem 0.75rem;
+    border-radius:20px;
+    font-weight:600;
+    margin:1.5rem 0;
+  }
+  .solution-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .solution-card {
+    background:var(--bg-main);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:var(--border-radius);
+    padding:1.5rem;
+    text-align:center;
+    transition:var(--transition);
+  }
+  .solution-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  .solution-card h3 {
+    font-size:1.125rem;
+    margin-bottom:0.75rem;
+    color:var(--primary);
+  }
+  .solution-card p {
+    font-size:0.9rem;
+    color:var(--text-secondary);
+  }
+  .solution-flow {
+    margin-top:3rem;
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    align-items:flex-end;
+  }
+  .solution-flow .step {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .solution-flow .step .icon {
+    width:40px;
+    height:40px;
+    background:var(--bg-secondary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    color:var(--primary);
+  }
+  .solution-flow .step .label {
+    font-size:0.875rem;
+    color:var(--text-secondary);
+    text-align:center;
+  }
+  .solution-flow .line {
+    width:2px;
+    height:40px;
+    background:var(--primary);
+    margin:0 0.5rem;
+  }
+  /* Authority */
+  .authority {
+    text-align:center;
+  }
+  .authority h2 {
+    font-size:2rem;
+    margin-bottom:0.5rem;
+  }
+  .authority p.sub {
+    font-size:1.125rem;
+    color:var(--text-secondary);
+    max-width:600px;
+    margin:0 auto 2rem;
+  }
+  .stats {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:2rem;
+    margin:2rem 0;
+  }
+  .stat {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .stat .number {
+    font-size:2rem;
+    font-weight:700;
+    color:var(--primary);
+  }
+  .stat .label {
+    font-size:0.9rem;
+    color:var(--text-secondary);
+    margin-top:0.25rem;
+  }
+  .authority .note {
+    font-size:0.875rem;
+    color:var(--text-secondary);
+    margin-top:2rem;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .authority .final-text {
+    font-size:1rem;
+    color:var(--text-secondary);
+    margin:1.5rem 0;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .authority .cta-btn {
+    background:var(--primary);
+    color:#080808;
+    border:none;
+    padding:1rem 2.5rem;
+    font-size:1rem;
+    font-weight:600;
+    border-radius:var(--border-radius);
+    cursor:pointer;
+    transition:var(--transition);
+    box-shadow:0 4px 12px rgba(245,176,0,0.3);
+    margin-top:1rem;
+  }
+  .authority .cta-btn:hover { opacity:0.9; transform:translateY(-2px); }
+  .authority .cta-subtext {
+    display:block;
+    margin-top:0.75rem;
+    font-size:0.875rem;
+    color:var(--text-secondary);
+    max-width:400px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  /* Modal */
+  .modal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:1rem;
+  }
+  .modal-content {
+    background:var(--bg-secondary);
+    border-radius:var(--border-radius);
+    width:100%;
+    max-width:500px;
+    max-height:85vh;
+    overflow-y:auto;
+    position:relative;
+    animation:modalFadeIn 0.3s ease;
+  }
+  @keyframes modalFadeIn {
+    from { opacity:0; transform:scale(0.95); }
+    to { opacity:1; transform:scale(1); }
+  }
+  .modal-close {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    background:none;
+    border:none;
+    font-size:1.5rem;
+    color:var(--text-secondary);
+    cursor:pointer;
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-header {
+    text-align:center;
+    padding:2rem 1.5rem 1.5rem;
+  }
+  .modal-header h2 {
+    font-size:1.5rem;
+    margin-bottom:0.5rem;
+  }
+  .modal-header p {
+    font-size:0.95rem;
+    color:var(--text-secondary);
+  }
+  .modal-body {
+    padding:0 1.5rem 1.5rem;
+  }
+  .form-group {
+    margin-bottom:1.5rem;
+  }
+  .form-group label {
+    display:block;
+    margin-bottom:0.5rem;
+    font-weight:600;
+    color:var(--text-main);
+    font-size:0.9rem;
+  }
+  .form-group input {
+    width:100%;
+    padding:0.75rem;
+    background:var(--bg-main);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--border-radius);
+    color:var(--text-main);
+    font-size:1rem;
+    transition:var(--transition);
+  }
+  .form-group input:focus {
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 2px rgba(245,176,0,0.2);
+  }
+  .form-group.select {
+    position:relative;
+  }
+  .form-group.select select {
+    width:100%;
+    padding:0.75rem;
+    background:var(--bg-main);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--border-radius);
+    color:var(--text-main);
+    font-size:1rem;
+    appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23F5B000' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 0.75rem center;
+  }
+  .form-group.select select:focus {
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 2px rgba(245,176,0,0.2);
+  }
+  .form-group input::placeholder { color:var(--text-secondary); }
+  .error-message {
+    color:#ff6b6b;
+    font-size:0.875rem;
+    margin-top:0.25rem;
+    display:none;
+  }
+  .form-btn {
+    width:100%;
+    background:var(--primary);
+    color:#080808;
+    border:none;
+    padding:1rem;
+    font-size:1rem;
+    font-weight:600;
+    border-radius:var(--border-radius);
+    cursor:pointer;
+    transition:var(--transition);
+    margin-top:1rem;
+  }
+  .form-btn:hover { opacity:0.9; transform:translateY(-2px); }
+  .form-btn:disabled {
+    opacity:0.6;
+    cursor:not-allowed;
+    transform:none;
+  }
+  .form-btn.loading {
+    position:relative;
+  }
+  .form-btn.loading::after {
+    content:'';
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:20px;
+    height:20px;
+    margin:-10px 0 0 -10px;
+    border:2px solid rgba(0,0,0,0.3);
+    border-top-color:#080808;
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+  }
+  @keyframes spin {
+    to { transform:rotate(360deg); }
+  }
+  .step-indicator {
+    display:flex;
+    justify-content:center;
+    gap:0.5rem;
+    margin-bottom:1.5rem;
+    font-size:0.875rem;
+    color:var(--text-secondary);
+  }
+  .step-indicator .step {
+    width:20px;
+    height:20px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .step-indicator .step.active {
+    background:var(--primary);
+    color:#080808;
+    border-color:var(--primary);
+  }
+  .step-indicator .step.completed {
+    background:var(--primary);
+    color:#080808;
+    border-color:var(--primary);
+  }
+  .success-message {
+    text-align:center;
+    padding:2rem;
+    display:none;
+  }
+  .success-message .check {
+    font-size:3rem;
+    color:var(--primary);
+    margin-bottom:1rem;
+  }
+  .success-message h2 {
+    font-size:1.5rem;
+    margin-bottom:0.5rem;
+  }
+  .success-message p {
+    font-size:0.95rem;
+    color:var(--text-secondary);
+    margin-bottom:1.5rem;
+  }
+  .success-message .whatsapp-btn {
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:var(--bg-main);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--border-radius);
+    padding:0.75rem 1.5rem;
+    color:var(--text-main);
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
+  }
+  .success-message .whatsapp-btn:hover {
+    background:var(--primary);
+    color:#080808;
+  }
+  /* Responsive */
+  @media (max-width:480px) {
+    .hero h1 { font-size:2rem; }
+    .problem h2 { font-size:1.75rem; }
+    .authority h2 { font-size:1.75rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">WORKI DIGITAL</div>
+  <button class="header-cta" id="headerCta">Solicitar análise</button>
+</header>
+
+<!-- Mobile fixed CTA -->
+<button class="mobile-fixed-cta" id="mobileCta">Solicitar análise</button>
+
+<!-- Sections -->
+<section class="hero">
+  <div class="container">
+    <div class="badge">WORKI DIGITAL • ACELERAÇÃO DE VENDAS</div>
+    <h1>Você não precisa apenas de mais leads.<br><span>Precisa transformar mais oportunidades em vendas.</span></h1>
+    <p>Tráfego Pago, Performance, CRM, Automação e Inteligência Artificial trabalhando juntos para construir uma operação comercial mais previsível.</p>
+    <button class="cta-btn" id="heroCta">QUERO UMA ANÁLISE DA MINHA OPERAÇÃO</button>
+    <div class="cta-subtext">Para empresas que querem estruturar aquisição, atendimento e vendas.</div>
+    <div class="flow">
+      <div class="step">
+        <div class="icon">📢</div>
+        <div class="label">ANÚNCIO</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">👤</div>
+        <div class="label">LEAD</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💾</div>
+        <div class="label">CRM</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💬</div>
+        <div class="label">ATENDIMENTO</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">🔁</div>
+        <div class="label">FOLLOW‑UP</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💰</div>
+        <div class="label">VENDA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="container">
+    <h2>Mais tráfego não resolve uma operação que perde oportunidades.</h2>
+    <p>Todos os dias empresas investem dinheiro para gerar leads.<br>Mas parte dessas oportunidades é perdida porque:</p>
+    <ul>
+      <li>o atendimento demora;</li>
+      <li>ninguém faz follow‑up;</li>
+      <li>os leads ficam esquecidos no WhatsApp;</li>
+      <li>não existe CRM estruturado;</li>
+      <li>marketing e vendas trabalham separados;</li>
+      <li>ninguém sabe exatamente quais campanhas realmente geraram vendas;</li>
+      <li>processos importantes ainda dependem de trabalho manual.</li>
+    </ul>
+    <div class="highlight">O problema pode não estar em gerar mais leads.<br>Pode estar no que acontece depois que o lead chega.</div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <h3>AQUISIÇÃO</h3>
+        <p>Meta Ads + Google Ads</p>
+      </div>
+      <div class="solution-card">
+        <h3>PERFORMANCE</h3>
+        <p>Campanhas + Funis + Mensuração</p>
+      </div>
+      <div class="solution-card">
+        <h3>CONVERSÃO</h3>
+        <p>CRM + Pipeline + Follow‑up</p>
+      </div>
+      <div class="solution-card">
+        <h3>AUTOMAÇÃO</h3>
+        <p>WhatsApp + IA + Integrações</p>
+      </div>
+    </div>
+    <div class="solution-flow">
+      <div class="step">
+        <div class="icon">📈</div>
+        <div class="label">TRÁFEGO</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">👤</div>
+        <div class="label">OPORTUNIDADE</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💾</div>
+        <div class="label">CRM</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💬</div>
+        <div class="label">ATENDIMENTO</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">🔁</div>
+        <div class="label">FOLLOW‑UP</div>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="icon">💰</div>
+        <div class="label">VENDA</div>
+      </div>
+    </div>
+    <button class="cta-btn" id="problemCta">QUERO IDENTIFICAR MEUS GARGALOS</button>
+  </div>
+</section>
+
+<section class="authority">
+  <div class="container">
+    <h2>Marketing não termina quando o lead entra.</h2>
+    <p class="sub">É exatamente aí que uma operação comercial eficiente começa.</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="number">+R$ 5 MILHÕES</div>
+        <div class="label">em mídia gerenciada</div>
+      </div>
+      <div class="stat">
+        <div class="number">+R$ 13 MILHÕES</div>
+        <div class="label">em faturamento gerado nos projetos atendidos</div>
+      </div>
+      <div class="stat">
+        <div class="number">+70</div>
+        <div class="label">projetos atendidos</div>
+      </div>
+      <div class="stat">
+        <div class="number">4+ ANOS</div>
+        <div class="label">atuando com tráfego e performance</div>
+      </div>
+    </div>
+    <p class="note">Resultados variam conforme mercado, oferta, investimento, operação e execução comercial de cada empresa.</p>
+    <p class="final-text">Descubra onde sua empresa está perdendo oportunidades entre o clique e a venda.</p>
+    <button class="cta-btn" id="authorityCta">SOLICITAR ANÁLISE DA MINHA OPERAÇÃO</button>
+    <div class="cta-subtext">Preencha seus dados. Nossa equipe vai analisar seu perfil antes do contato.</div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-header">
+      <h2>Vamos entender sua operação.</h2>
+      <p>Preencha as informações abaixo para solicitar uma análise da Worki Digital.</p>
+    </div>
+    <div class="modal-body">
+      <!-- Step indicator -->
+      <div class="step-indicator">
+        <div class="step" id="step1">1</div>
+        <div class="step" id="step2">2</div>
+      </div>
+      <form id="qualifyForm">
+        <!-- Step 1 -->
+        <div id="step1Content">
+          <div class="form-group">
+            <label for="nome">Qual é o seu nome?</label>
+            <input type="text" id="nome" name="nome" required>
+            <div class="error-message" id="nomeError">Campo obrigatório</div>
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">Qual é o seu WhatsApp?</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+            <div class="error-message" id="whatsappError">Campo obrigatório</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Qual é o seu melhor e-mail?</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error-message" id="emailError">E‑mail inválido</div>
+          </div>
+          <div class="form-group">
+            <label for="instagram">Qual é o Instagram da empresa ou seu Instagram profissional?</label>
+            <input type="text" id="instagram" name="instagram" placeholder="@usuario" required>
+            <div class="error-message" id="instagramError">Campo obrigatório</div>
+          </div>
+          <button type="button" id="nextStep1" class="form-btn">Continuar</button>
+        </div>
+        <!-- Step 2 -->
+        <div id="step2Content" style="display:none;">
+          <div class="form-group">
+            <label for="faturamento">Qual é o faturamento médio mensal da empresa?</label>
+            <select id="faturamento" name="faturamento" required>
+              <option value="">Selecione uma faixa</option>
+              <option value="ate_30k">Até R$ 30 mil</option>
+              <option value="30k_60k">R$ 30 mil a R$ 60 mil</option>
+              <option value="60k_100k">R$ 60 mil a R$ 100 mil</option>
+              <option value="100k_300k">R$ 100 mil a R$ 300 mil</option>
+              <option value="300k_500k">R$ 300 mil a R$ 500 mil</option>
+              <option value="500k_1mi">R$ 500 mil a R$ 1 milhão</option>
+              <option value="acima_1mi">Acima de R$ 1 milhão</option>
+            </select>
+            <div class="error-message" id="faturamentoError">Campo obrigatório</div>
+          </div>
+          <div class="form-group">
+            <label for="cargo">Qual é o seu cargo na empresa?</label>
+            <select id="cargo" name="cargo" required>
+              <option value="">Selecione</option>
+              <option value="socio">Sócio / Proprietário</option>
+              <option value="ceo">CEO / Diretor</option>
+              <option value="diretor_marketing">Diretor de Marketing</option>
+              <option value="diretor_comercial">Diretor Comercial</option>
+              <option value="gerente">Gerente</option>
+              <option value="coordenador">Coordenador</option>
+              <option value="analista">Analista</option>
+              <option value="outro">Outro</option>
+            </select>
+            <div class="error-message" id="cargoError">Campo obrigatório</div>
+          </div>
+          <div class="form-group">
+            <label>Você participa diretamente da decisão de contratação de marketing, tráfego ou tecnologia da empresa?</label>
+            <div style="display:flex; gap:1rem; margin-top:0.5rem;">
+              <label style="flex:1;">
+                <input type="radio" name="decisor" value="sim" required>
+                SIM, SOU DECISOR
+              </label>
+              <label style="flex:1;">
+                <input type="radio" name="decisor" value="participo">
+                PARTICIPO DA DECISÃO
+              </label>
+              <label style="flex:1;">
+                <input type="radio" name="decisor" value="nao">
+                NÃO SOU DECISOR
+              </label>
+            </div>
+            <div class="error-message" id="decisorError" style="margin-top:0.5rem;">Campo obrigatório</div>
+          </div>
+          <button type="button" id="prevStep2" class="form-btn" style="background:var(--bg-secondary); color:var(--text-main); border:1px solid rgba(255,255,255,0.2); margin-right:1rem;">Voltar</button>
+          <button type="submit" id="submitBtn" class="form-btn">SOLICITAR MINHA ANÁLISE</button>
+        </div>
+      </form>
+    </div>
+    <div class="success-message" id="successMessage">
+      <div class="check">✅</div>
+      <h2>Solicitação recebida.</h2>
+      <p>Nossa equipe recebeu suas informações e vai analisar o perfil da sua operação.</p>
+      <a href="#" class="whatsapp-btn" id="whatsappBtn">FALAR COM A WORKI DIGITAL</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Helper to get URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const getParam = (name) => urlParams.get(name) || '';
+  // UTM parameters
+  const utmParams = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+  const utmValues = {};
+  utmParams.forEach(p => { utmValues[p] = getParam(p); });
+  const pageUrl = window.location.href;
+  const createdAt = new Date().toISOString();
+
+  // Modal controls
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modalClose');
+  const openModalButtons = [document.getElementById('headerCta'), document.getElementById('mobileCta'),
+                            document.getElementById('heroCta'), document.getElementById('problemCta'),
+                            document.getElementById('authorityCta')];
+  openModalButtons.forEach(btn => {
+    if (btn) btn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      // Reset form
+      document.getElementById('qualifyForm').reset();
+      document.getElementById('step1Content').style.display = 'block';
+      document.getElementById('step2Content').style.display = 'none';
+      document.getElementById('step1').classList.add('active');
+      document.getElementById('step2').classList.remove('active','completed');
+      hideAllErrors();
+      // Fill hidden UTMs later on submit
+    });
+  });
+  modalClose.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.style.display = 'none'; });
+
+  // Form steps
+  const nextStep1 = document.getElementById('nextStep1');
+  const prevStep2 = document.getElementById('prevStep2');
+  nextStep1.addEventListener('click', () => {
+    // Validate step1
+    let valid = true;
+    const nome = document.getElementById('nome').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const instagram = document.getElementById('instagram').value.trim();
+    if (!nome) { showError('nomeError'); valid = false; } else { hideError('nomeError'); }
+    if (!whatsapp) { showError('whatsappError'); valid = false; } else { hideError('whatsappError'); }
+    if (!email) { showError('emailError'); valid = false; } else { if (!validateEmail(email)) { showError('emailError'); valid = false; } else { hideError('emailError'); } }
+    if (!instagram) { showError('instagramError'); valid = false; } else { hideError('instagramError'); }
+    if (valid) {
+      document.getElementById('step1Content').style.display = 'none';
+      document.getElementById('step2Content').style.display = 'block';
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step1').classList.add('completed');
+      document.getElementById('step2').classList.add('active');
+    }
+  });
+  prevStep2.addEventListener('click', () => {
+    document.getElementById('step2Content').style.display = 'none';
+    document.getElementById('step1Content').style.display = 'block';
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.remove('completed');
+    document.getElementById('step1').classList.add('active');
+  });
+
+  // Submit
+  const form = document.getElementById('qualifyForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMessage = document.getElementById('successMessage');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const WHATSAPP_NUMBER = '5585999515154'; // from user profile
+  const WEBHOOK_URL = 'https://example.com/webhook'; // placeholder
+
+  submitBtn.addEventListener('click', async e => {
+    e.preventDefault();
+    // Validate step2
+    let valid = true;
+    const faturamento = document.getElementById('faturamento').value;
+    const cargo = document.getElementById('cargo').value;
+    const decisor = document.querySelector('input[name="decisor"]:checked');
+    if (!faturamento) { showError('faturamentoError'); valid = false; } else { hideError('faturamentoError'); }
+    if (!cargo) { showError('cargoError'); valid = false; } else { hideError('cargoError'); }
+    if (!decisor) { showError('decisorError'); valid = false; } else { hideError('decisorError'); }
+    if (!valid) return;
+
+    // Collect data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    data.utm_source = utmValues.utm_source;
+    data.utm_medium = utmValues.utm_medium;
+    data.utm_campaign = utmValues.utm_campaign;
+    data.utm_content = utmValues.utm_content;
+    data.utm_term = utmValues.utm_term;
+    data.fbclid = utmValues.fbclid;
+    data.gclid = utmValues.gclid;
+    data.page_url = pageUrl;
+    data.created_at = createdAt;
+
+    // Show loading
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    // Simulate webhook call (replace with actual fetch)
+    try {
+      // await fetch(WEBHOOK_URL, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data)
+      // });
+      // For demo, use timeout
+      await new Promise(r => setTimeout(r, 1500));
+      // Success
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+      whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Acabei%20de%20preencher%20a%20análise%20da%20Worki%20Digital%20e%20gostaria%20de%20falar%20sobre%20minha%20operação.`;
+    } catch (err) {
+      alert('Erro ao enviar. Tente novamente.');
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Utility
+  function showError(id) { document.getElementById(id).style.display = 'block'; }
+  function hideError(id) { document.getElementById(id).style.display = 'none'; }
+  function hideAllErrors() {
+    document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+  }
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Tracking stubs (console)
+  function track(event) { console.log('Track:', event); }
+  // PageView
+  track('PageView');
+  // CTA clicks
+  document.querySelectorAll('.cta-btn, .header-cta, .mobile-fixed-cta').forEach(btn => {
+    btn.addEventListener('click', () => track('CTA_Click'));
+  });
+  // Modal open
+  document.getElementById('modal').addEventListener('show', () => track('Form_Open')); // not fired, we'll call manually
+  // We'll call on open
+  openModalButtons.forEach(btn => {
+    if (btn) btn.addEventListener('click', () => track('Form_Open'));
+  });
+  // First input focus
+  document.getElementById('nome').addEventListener('focus', () => track('Form_Start'));
+  // WhatsApp click after success
+  whatsappBtn.addEventListener('click', () => track('WhatsApp_Click'));
+
+  // Input masking for WhatsApp (simple)
+  const whatsappInput = document.getElementById('whatsapp');
+  whatsappInput.addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    if (v.length > 10) v = `${v.slice(0,10)}-${v.slice(10,14)}`;
+    e.target.value = v;
+  });
+</script>
+</body>
+</html>
