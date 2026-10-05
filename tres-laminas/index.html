@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Worki Digital — Transforme oportunidades em vendas</title>
+<meta name="description" content="A Worki Digital une Tráfego Pago, Performance, CRM, Automação e Inteligência Artificial para estruturar toda a operação entre aquisição e venda.">
+<meta name="theme-color" content="#080808">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Worki Digital — estrutura da sua operação comercial">
+<meta property="og:description" content="Não basta gerar leads. É preciso uma operação que transforme oportunidades em vendas.">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* Landing de 3 laminas — Worki Digital
+   Dark premium, amarelo #F5B000 so em CTA, indicador e acento. */
+
+:root {
+  --fundo: #080808;
+  --fundo-2: #111111;
+  --fundo-3: #161616;
+  --borda: #242424;
+  --amarelo: #F5B000;
+  --texto: #FFFFFF;
+  --texto-2: #b8b8b8;
+  --texto-3: #7d7d7d;
+  --raio: 14px;
+  --raio-forte: 20px;
+  --max: 1180px;
+  --fonte: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* O teclado do celular nao pode cobrir os campos do modal. */
+  scroll-padding-bottom: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Trava o scroll de fundo quando o modal abre. */
+  overflow-x: hidden;
+}
+
+body.modal-aberto { overflow: hidden; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pular {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--amarelo);
+  color: #000;
+  padding: 10px 16px;
+  z-index: 200;
+  border-radius: 0 0 8px 0;
+}
+.pular:focus { left: 0; }
+
+/* ---------- topo ---------- */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(8, 8, 8, 0.86);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.topo__interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 62px;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.marca__ponto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--amarelo);
+  box-shadow: 0 0 12px rgba(245, 176, 0, 0.55);
+}
+
+.marca__nome { font-size: 1.02rem; }
+
+/* ---------- botoes ---------- */
+.botao {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 13px 22px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.botao--grande {
+  padding: 17px 30px;
+  font-size: 0.94rem;
+  background: var(--amarelo);
+  color: #0a0a0a;
+  box-shadow: 0 10px 30px -12px rgba(245, 176, 0, 0.65);
+}
+.botao--grande:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 38px -14px rgba(245, 176, 0, 0.8);
+}
+
+.botao--cheio {
+  width: 100%;
+  background: var(--amarelo);
+  color: #0a0a0a;
+  font-weight: 800;
+}
+.botao--cheio:hover { background: #ffc233; }
+
+.botao--pequeno {
+  padding: 9px 16px;
+  font-size: 0.72rem;
+  background: transparent;
+  color: var(--texto);
+  border-color: var(--borda);
+}
+.botao--pequeno:hover { border-color: var(--amarelo); color: var(--amarelo); }
+
+.botao--fantasma {
+  background: transparent;
+  color: var(--texto-2);
+  border-color: var(--borda);
+  padding: 13px 20px;
+}
+.botao--fantasma:hover { color: var(--texto); border-color: #3a3a3a; }
+
+.botao:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* ---------- selo ---------- */
+.selo {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--amarelo);
+  margin: 0 0 18px;
+}
+.selo--modal { margin-bottom: 10px; }
+
+/* ---------- laminas ---------- */
+.lamina {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--borda);
+}
+.lamina:last-of-type { border-bottom: none; }
+
+.lamina--hero {
+  padding-top: 52px;
+  padding-bottom: 76px;
+  background:
+    radial-gradient(900px 420px at 78% -10%, rgba(245, 176, 0, 0.09), transparent 62%),
+    radial-gradient(700px 380px at 8% 8%, rgba(120, 90, 255, 0.07), transparent 60%);
+}
+
+.lamina__titulo {
+  font-size: clamp(1.6rem, 4.1vw, 2.5rem);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  margin: 0 0 16px;
+  max-width: 22ch;
+}
+
+.lamina__sub {
+  color: var(--texto-2);
+  font-size: 1.02rem;
+  margin: 0 0 34px;
+  max-width: 56ch;
+}
+
+.lamina__acao { text-align: center; margin-top: 40px; }
+
+/* ---------- hero ---------- */
+.hero__grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.hero__titulo {
+  font-size: clamp(2rem, 6.4vw, 3.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 900;
+  margin: 0 0 18px;
+}
+
+.destaque {
+  color: var(--amarelo);
+}
+
+.hero__sub {
+  color: var(--texto-2);
+  font-size: 1.04rem;
+  max-width: 48ch;
+  margin: 0 0 28px;
+}
+
+.hero__nota {
+  color: var(--texto-3);
+  font-size: 0.83rem;
+  margin: 12px 0 0;
+}
+
+.hero__visual { display: grid; gap: 14px; }
+
+/* esteira */
+.esteira {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-forte);
+  padding: 20px;
+}
+
+.esteira__titulo {
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  color: var(--texto-3);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.esteira__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+
+.etapa {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 0;
+  border-bottom: 1px dashed #1e1e1e;
+  position: relative;
+}
+.etapa:last-child { border-bottom: none; }
+
+/* linha que liga uma etapa a outra */
+.etapa:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 30px;
+  width: 1px;
+  height: 12px;
+  background: linear-gradient(rgba(245, 176, 0, 0.5), rgba(245, 176, 0, 0.05));
+}
+
+.etapa__ponto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--amarelo);
+  box-shadow: 0 0 10px rgba(245, 176, 0, 0.5);
+}
+
+.etapa__nome { font-size: 0.92rem; font-weight: 650; }
+.etapa__meta { font-size: 0.7rem; color: var(--texto-3); }
+
+.etapa--fim .etapa__ponto {
+  background: #fff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+}
+
+/* painel */
+.painel {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-forte);
+  padding: 18px 20px;
+}
+
+.painel__titulo {
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  color: var(--texto-3);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.painel__grade { display: grid; gap: 13px; }
+
+.painel__item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 10px;
+  align-items: center;
+}
+
+.painel__rotulo { font-size: 0.78rem; color: var(--texto-2); }
+.painel__valor {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--amarelo);
+  font-variant-numeric: tabular-nums;
+}
+
+.painel__barra {
+  grid-column: 1 / -1;
+  height: 3px;
+  background: #1d1d1d;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.painel__barra::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: var(--pct, 0%);
+  background: linear-gradient(90deg, rgba(245, 176, 0, 0.5), var(--amarelo));
+}
+
+.painel__nota { font-size: 0.66rem; color: #5c5c5c; margin: 13px 0 0; }
+
+/* ---------- lamina 2 ---------- */
+.gargalo__grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+  margin-bottom: 34px;
+}
+
+.gargalo__intro { color: var(--texto-2); margin: 0 0 14px; }
+
+.gargalo__lista ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.gargalo__lista li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--texto-2);
+  font-size: 0.94rem;
+}
+
+.gargalo__lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 176, 0, 0.6);
+}
+
+.destaque-bloco {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-left: 2px solid var(--amarelo);
+  border-radius: var(--raio);
+  padding: 24px;
+  display: grid;
+  gap: 8px;
+  align-content: center;
+}
+
+.destaque-bloco p { margin: 0; color: var(--texto-2); }
+
+.destaque-bloco__linha {
+  color: var(--texto) !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 34px;
+}
+
+.pilar {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 17px 18px;
+  transition: border-color 0.2s ease;
+}
+.pilar:hover { border-color: rgba(245, 176, 0, 0.35); }
+
+.pilar h3 {
+  margin: 0 0 5px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--amarelo);
+  font-weight: 800;
+}
+
+.pilar p { margin: 0; font-size: 0.88rem; color: var(--texto-2); }
+
+/* funil */
+.funil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 26px 18px;
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-forte);
+}
+
+.funil__etapa {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  color: var(--texto-2);
+  text-align: center;
+}
+
+.funil__etapa--fim { color: var(--amarelo); }
+
+.funil__seta { color: #3d3d3d; font-size: 0.85rem; line-height: 1; }
+
+/* ---------- lamina 3 ---------- */
+.lamina--autoridade { padding-bottom: 84px; }
+
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 34px 0 18px;
+}
+
+.indicador {
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 22px 18px;
+}
+
+.indicador__valor {
+  font-size: clamp(1.2rem, 3.6vw, 1.7rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--amarelo);
+  margin: 0 0 5px;
+  line-height: 1.1;
+}
+
+.indicador__legenda { margin: 0; font-size: 0.78rem; color: var(--texto-3); line-height: 1.4; }
+
+.observacao { font-size: 0.7rem; color: #5f5f5f; margin: 0; max-width: 62ch; }
+
+.fechamento {
+  font-size: clamp(1.15rem, 3.2vw, 1.6rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: 26ch;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+/* ---------- modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal[hidden] { display: none; }
+
+.modal__fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+  animation: aparecer 0.22s ease;
+}
+
+.modal__caixa {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 92dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--fundo-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-forte) var(--raio-forte) 0 0;
+  padding: 28px 22px calc(24px + env(safe-area-inset-bottom));
+  animation: subir 0.26s cubic-bezier(0.22, 0.9, 0.3, 1);
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes subir {
+  from { transform: translateY(22px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+.modal__fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fundo-3);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  color: var(--texto-2);
+  cursor: pointer;
+}
+.modal__fechar:hover { color: var(--texto); border-color: #3a3a3a; }
+
+.modal__cabecalho { padding-right: 34px; margin-bottom: 18px; }
+
+.modal__cabecalho h2 {
+  margin: 0 0 7px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.modal__sub { margin: 0; font-size: 0.86rem; color: var(--texto-2); }
+
+/* progresso */
+.progresso { margin-bottom: 20px; }
+.progresso[hidden] { display: none; }
+
+.progresso__texto {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--texto-3);
+  margin: 0 0 7px;
+}
+
+.progresso__trilho { height: 3px; background: #1e1e1e; border-radius: 2px; overflow: hidden; }
+
+.progresso__barra {
+  height: 100%;
+  width: 50%;
+  background: var(--amarelo);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* campos */
+.campo { margin-bottom: 17px; border: 0; padding: 0; min-width: 0; }
+
+.campo label,
+.campo legend {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 7px;
+  padding: 0;
+}
+
+.campo input[type='text'],
+.campo input[type='tel'],
+.campo input[type='email'] {
+  width: 100%;
+  background: var(--fundo-3);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-family: inherit;
+  /* 16px evita o zoom automatico do iOS ao focar o campo. */
+  font-size: 1rem;
+  color: var(--texto);
+  transition: border-color 0.18s ease;
+}
+
+.campo input::placeholder { color: #5f5f5f; }
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--amarelo);
+}
+
+.campo input[aria-invalid='true'] { border-color: #d94a4a; }
+
+/* feedback de campo preenchido */
+.campo.preenchido input { border-color: #2f2f2f; }
+.campo.preenchido input::after { content: ''; }
+
+.campo__erro {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: #e46b6b;
+  min-height: 0;
+}
+.campo__erro:empty { display: none; }
+
+/* opcoes */
+.opcoes { display: grid; grid-template-columns: 1fr; gap: 7px; }
+
+.opcao { position: relative; display: block; cursor: pointer; }
+.opcao input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.opcao span {
+  display: block;
+  padding: 12px 14px;
+  background: var(--fundo-3);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  color: var(--texto-2);
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+}
+.opcao input:checked + span {
+  border-color: var(--amarelo);
+  color: var(--texto);
+  background: rgba(245, 176, 0, 0.07);
+}
+.opcao input:focus-visible + span { outline: 2px solid var(--amarelo); outline-offset: 2px; }
+
+.opcao--grande span {
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  padding: 15px 12px;
+}
+
+.acoes { display: grid; grid-template-columns: auto 1fr; gap: 9px; align-items: stretch; }
+
+/* sucesso */
+.sucesso { text-align: center; padding: 12px 0 4px; }
+.sucesso[hidden] { display: none; }
+
+.sucesso__marca {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 176, 0, 0.1);
+  border: 1px solid rgba(245, 176, 0, 0.4);
+  border-radius: 50%;
+  color: var(--amarelo);
+}
+
+.sucesso h2 { margin: 0 0 9px; font-size: 1.32rem; font-weight: 800; }
+.sucesso p { margin: 0 0 22px; color: var(--texto-2); font-size: 0.9rem; }
+
+/* ---------- barra fixa ---------- */
+.barra-fixa {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(8, 8, 8, 0.94);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--borda);
+}
+.barra-fixa[hidden] { display: none; }
+
+/* ---------- desktop ---------- */
+@media (min-width: 640px) {
+  .pilares { grid-template-columns: repeat(4, 1fr); }
+  .indicadores { grid-template-columns: repeat(4, 1fr); }
+  .opcoes { grid-template-columns: repeat(2, 1fr); }
+  .opcoes--grandes { grid-template-columns: repeat(3, 1fr); }
+  .lamina__titulo, .fechamento { max-width: 30ch; }
+}
+
+@media (min-width: 900px) {
+  .lamina { padding: 104px 0; }
+  .hero__grade { grid-template-columns: 1.05fr 0.95fr; gap: 54px; }
+  .gargalo__grade { grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; }
+
+  .modal {
+    align-items: center;
+    padding: 24px;
+  }
+
+  .modal__caixa {
+    border-radius: var(--raio-forte);
+    padding: 34px 36px 32px;
+    max-height: 88dvh;
+  }
+
+  .barra-fixa { display: none; }
+  html { scroll-padding-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+</style>
+</head>
+<body>
+
+<a class="pular" href="#lamina-01">Ir para o conteúdo</a>
+
+<header class="topo">
+  <div class="container topo__interno">
+    <a class="marca" href="#lamina-01">
+      <span class="marca__ponto" aria-hidden="true"></span>
+      <span class="marca__nome">Worki Digital</span>
+    </a>
+    <button type="button" class="botao botao--pequeno topo__cta" data-cta="topo">
+      Solicitar análise
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ LÂMINA 01 — HERO ============ -->
+<section class="lamina lamina--hero" id="lamina-01">
+  <div class="container lamina__grade">
+
+    <div class="hero__texto">
+      <p class="selo">WORKI DIGITAL <span aria-hidden="true">•</span> ACELERAÇÃO DE VENDAS</p>
+
+      <h1 class="hero__titulo">
+        Você não precisa apenas de mais leads.<br>
+        <span class="destaque">Precisa transformar mais oportunidades em vendas.</span>
+      </h1>
+
+      <p class="hero__sub">
+        Tráfego Pago, Performance, CRM, Automação e Inteligência Artificial
+        trabalhando juntos para construir uma operação comercial mais previsível.
+      </p>
+
+      <button type="button" class="botao botao--grande" data-cta="hero">
+        QUERO UMA ANÁLISE DA MINHA OPERAÇÃO
+      </button>
+
+      <p class="hero__nota">
+        Para empresas que querem estruturar aquisição, atendimento e vendas.
+      </p>
+    </div>
+
+    <!-- Representação visual: a esteira do lead, sem foto de banco. -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="esteira">
+        <p class="esteira__titulo">FLUXO OPERACIONAL</p>
+        <ol class="esteira__lista">
+          <li class="etapa"><span class="etapa__ponto"></span><span class="etapa__nome">Anúncio</span><span class="etapa__meta">Meta Ads · Google Ads</span></li>
+          <li class="etapa"><span class="etapa__ponto"></span><span class="etapa__nome">Lead</span><span class="etapa__meta">Captura e origem</span></li>
+          <li class="etapa"><span class="etapa__ponto"></span><span class="etapa__nome">CRM</span><span class="etapa__meta">Pipeline registrado</span></li>
+          <li class="etapa"><span class="etapa__ponto"></span><span class="etapa__nome">Atendimento</span><span class="etapa__meta">Resposta rápida</span></li>
+          <li class="etapa"><span class="etapa__ponto"></span><span class="etapa__nome">Follow-up</span><span class="etapa__meta">Sem oportunidade perdida</span></li>
+          <li class="etapa etapa--fim"><span class="etapa__ponto"></span><span class="etapa__nome">Venda</span><span class="etapa__meta">Pipeline fechado</span></li>
+        </ol>
+      </div>
+
+      <div class="painel">
+        <p class="painel__titulo">Visão da operação</p>
+        <div class="painel__grade">
+          <div class="painel__item"><span class="painel__rotulo">Leads no funil</span><span class="painel__valor">1.284</span><span class="painel__barra" style="--pct:82%"></span></div>
+          <div class="painel__item"><span class="painel__rotulo">Respondidos em até 5 min</span><span class="painel__valor">91%</span><span class="painel__barra" style="--pct:91%"></span></div>
+          <div class="painel__item"><span class="painel__rotulo">Follow-up em dia</span><span class="painel__valor">74%</span><span class="painel__barra" style="--pct:74%"></span></div>
+          <div class="painel__item"><span class="painel__rotulo">Oportunidades no CRM</span><span class="painel__valor">96%</span><span class="painel__barra" style="--pct:96%"></span></div>
+        </div>
+        <p class="painel__nota">Ilustração de interface. Números de exemplo.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ LÂMINA 02 — O GARGALO ============ -->
+<section class="lamina lamina--gargalo" id="lamina-02">
+  <div class="container">
+
+    <h2 class="lamina__titulo">
+      Mais tráfego não resolve uma operação que perde oportunidades.
+    </h2>
+
+    <div class="gargalo__grade">
+      <div class="gargalo__lista">
+        <p class="gargalo__intro">
+          Todos os dias empresas investem dinheiro para gerar leads.
+          Mas parte dessas oportunidades é perdida porque:
+        </p>
+        <ul>
+          <li>o atendimento demora</li>
+          <li>ninguém faz follow-up</li>
+          <li>os leads ficam esquecidos no WhatsApp</li>
+          <li>não existe CRM estruturado</li>
+          <li>marketing e vendas trabalham separados</li>
+          <li>ninguém sabe exatamente quais campanhas realmente geraram vendas</li>
+          <li>processos importantes ainda dependem de trabalho manual</li>
+        </ul>
+      </div>
+
+      <div class="destaque-bloco">
+        <p>O problema pode não estar em gerar mais leads.</p>
+        <p class="destaque-bloco__linha">Pode estar no que acontece depois que o lead chega.</p>
+      </div>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar">
+        <h3>AQUISIÇÃO</h3>
+        <p>Meta Ads + Google Ads</p>
+      </div>
+      <div class="pilar">
+        <h3>PERFORMANCE</h3>
+        <p>Campanhas + Funis + Mensuração</p>
+      </div>
+      <div class="pilar">
+        <h3>CONVERSÃO</h3>
+        <p>CRM + Pipeline + Follow-up</p>
+      </div>
+      <div class="pilar">
+        <h3>AUTOMAÇÃO</h3>
+        <p>WhatsApp + IA + Integrações</p>
+      </div>
+    </div>
+
+    <div class="funil" aria-hidden="true">
+      <span class="funil__etapa">TRÁFEGO</span>
+      <span class="funil__seta" aria-hidden="true">↓</span>
+      <span class="funil__etapa">OPORTUNIDADE</span>
+      <span class="funil__seta" aria-hidden="true">↓</span>
+      <span class="funil__etapa">CRM</span>
+      <span class="funil__seta" aria-hidden="true">↓</span>
+      <span class="funil__etapa">ATENDIMENTO</span>
+      <span class="funil__seta" aria-hidden="true">↓</span>
+      <span class="funil__etapa">FOLLOW-UP</span>
+      <span class="funil__seta" aria-hidden="true">↓</span>
+      <span class="funil__etapa funil__etapa--fim">VENDA</span>
+    </div>
+
+    <div class="lamina__acao">
+      <button type="button" class="botao botao--grande" data-cta="gargalo">
+        QUERO IDENTIFICAR MEUS GARGALOS
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ LÂMINA 03 — AUTORIDADE ============ -->
+<section class="lamina lamina--autoridade" id="lamina-03">
+  <div class="container">
+
+    <h2 class="lamina__titulo">Marketing não termina quando o lead entra.</h2>
+    <p class="lamina__sub">É exatamente aí que uma operação comercial eficiente começa.</p>
+
+    <div class="indicadores">
+      <div class="indicador">
+        <p class="indicador__valor">+R$ 5 MILHÕES</p>
+        <p class="indicador__legenda">em mídia gerenciada</p>
+      </div>
+      <div class="indicador">
+        <p class="indicador__valor">+R$ 13 MILHÕES</p>
+        <p class="indicador__legenda">em faturamento gerado nos projetos atendidos</p>
+      </div>
+      <div class="indicador">
+        <p class="indicador__valor">+70</p>
+        <p class="indicador__legenda">projetos atendidos</p>
+      </div>
+      <div class="indicador">
+        <p class="indicador__valor">4+ ANOS</p>
+        <p class="indicador__legenda">atuando com tráfego e performance</p>
+      </div>
+    </div>
+
+    <p class="observacao">
+      Resultados variam conforme mercado, oferta, investimento, operação e execução comercial de cada empresa.
+    </p>
+
+    <p class="fechamento">
+      Descubra onde sua empresa está perdendo oportunidades entre o clique e a venda.
+    </p>
+
+    <div class="lamina__acao">
+      <button type="button" class="botao botao--grande" data-cta="autoridade">
+        SOLICITAR ANÁLISE DA MINHA OPERAÇÃO
+      </button>
+      <p class="hero__nota">
+        Preencha seus dados. Nossa equipe vai analisar seu perfil antes do contato.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============ POP-UP DE QUALIFICAÇÃO ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__fundo" data-fechar></div>
+
+  <div class="modal__caixa" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+
+    <button type="button" class="modal__fechar" data-fechar aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="modal__corpo" id="modal-corpo">
+      <div class="modal__cabecalho">
+        <p class="selo selo--modal">WORKI DIGITAL</p>
+        <h2 id="modal-titulo">Vamos entender sua operação.</h2>
+        <p class="modal__sub">
+          Preencha as informações abaixo para solicitar uma análise da Worki Digital.
+        </p>
+      </div>
+
+      <div class="progresso" id="progresso">
+        <p class="progresso__texto" id="progresso-texto">Etapa 1 de 2</p>
+        <div class="progresso__trilho"><div class="progresso__barra" id="progresso-barra"></div></div>
+      </div>
+
+      <form id="formulario" novalidate>
+
+        <!-- ETAPA 1 -->
+        <div class="etapa-form" data-etapa="1">
+
+          <div class="campo">
+            <label for="nome">Qual é o seu nome?</label>
+            <input id="nome" name="nome" type="text" autocomplete="name"
+                   placeholder="Seu nome completo" required>
+            <p class="campo__erro" data-erro="nome"></p>
+          </div>
+
+          <div class="campo">
+            <label for="whatsapp">Qual é o seu WhatsApp?</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric"
+                   autocomplete="tel" placeholder="(00) 00000-0000" required>
+            <p class="campo__erro" data-erro="whatsapp"></p>
+          </div>
+
+          <div class="campo">
+            <label for="email">Qual é o seu melhor e-mail?</label>
+            <input id="email" name="email" type="email" inputmode="email"
+                   autocomplete="email" placeholder="voce@empresa.com.br" required>
+            <p class="campo__erro" data-erro="email"></p>
+          </div>
+
+          <div class="campo">
+            <label for="instagram">Qual é o Instagram da empresa ou seu Instagram profissional?</label>
+            <input id="instagram" name="instagram" type="text" placeholder="@usuario" required>
+            <p class="campo__erro" data-erro="instagram"></p>
+          </div>
+
+          <button type="button" class="botao botao--cheio" data-avancar>
+            Continuar
+          </button>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div class="etapa-form" data-etapa="2" hidden>
+
+          <fieldset class="campo campo--grupo">
+            <legend>Qual é o faturamento médio mensal da empresa?</legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="radio" name="faturamento" value="Até R$ 30 mil" required><span>Até R$ 30 mil</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="R$ 30 mil a R$ 60 mil"><span>R$ 30 mil a R$ 60 mil</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="R$ 60 mil a R$ 100 mil"><span>R$ 60 mil a R$ 100 mil</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="R$ 100 mil a R$ 300 mil"><span>R$ 100 mil a R$ 300 mil</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="R$ 300 mil a R$ 500 mil"><span>R$ 300 mil a R$ 500 mil</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="R$ 500 mil a R$ 1 milhão"><span>R$ 500 mil a R$ 1 milhão</span></label>
+              <label class="opcao"><input type="radio" name="faturamento" value="Acima de R$ 1 milhão"><span>Acima de R$ 1 milhão</span></label>
+            </div>
+            <p class="campo__erro" data-erro="faturamento"></p>
+          </fieldset>
+
+          <fieldset class="campo campo--grupo">
+            <legend>Qual é o seu cargo na empresa?</legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="radio" name="cargo" value="Sócio / Proprietário" required><span>Sócio / Proprietário</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="CEO / Diretor"><span>CEO / Diretor</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Diretor de Marketing"><span>Diretor de Marketing</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Diretor Comercial"><span>Diretor Comercial</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Gerente"><span>Gerente</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Coordenador"><span>Coordenador</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Analista"><span>Analista</span></label>
+              <label class="opcao"><input type="radio" name="cargo" value="Outro"><span>Outro</span></label>
+            </div>
+            <p class="campo__erro" data-erro="cargo"></p>
+          </fieldset>
+
+          <fieldset class="campo campo--grupo">
+            <legend>Você participa diretamente da decisão de contratação de marketing, tráfego ou tecnologia da empresa?</legend>
+            <div class="opcoes opcoes--grandes">
+              <label class="opcao opcao--grande"><input type="radio" name="decisor" value="SIM, SOU DECISOR" required><span>SIM, SOU DECISOR</span></label>
+              <label class="opcao opcao--grande"><input type="radio" name="decisor" value="PARTICIPO DA DECISÃO"><span>PARTICIPO DA DECISÃO</span></label>
+              <label class="opcao opcao--grande"><input type="radio" name="decisor" value="NÃO SOU DECISOR"><span>NÃO SOU DECISOR</span></label>
+            </div>
+            <p class="campo__erro" data-erro="decisor"></p>
+          </fieldset>
+
+          <div class="acoes">
+            <button type="button" class="botao botao--fantasma" data-voltar>Voltar</button>
+            <button type="submit" class="botao botao--cheio" id="enviar">SOLICITAR MINHA ANÁLISE</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUCESSO -->
+    <div class="sucesso" id="sucesso" hidden>
+      <div class="sucesso__marca" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="34" height="34" focusable="false">
+          <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <h2>Solicitação recebida.</h2>
+      <p>Nossa equipe recebeu suas informações e vai analisar o perfil da sua operação.</p>
+      <a class="botao botao--cheio" id="botao-whatsapp" href="#" rel="noopener">
+        FALAR COM A WORKI DIGITAL
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ CTA FIXO (MOBILE) ============ -->
+<div class="barra-fixa" id="barra-fixa" hidden>
+  <button type="button" class="botao botao--cheio" data-cta="barra-fixa">
+    SOLICITAR ANÁLISE
+  </button>
+</div>
+
+<script>
+/* Landing de 3 laminas — comportamento do modal, validacao e eventos.
+
+   Regra central do dono: nenhum CTA redireciona. Todo CTA abre o mesmo
+   modal. So existe WhatsApp depois que o lead foi registrado, e o botao
+   do WhatsApp so aparece na tela de sucesso. */
+
+(function () {
+  'use strict';
+
+  var VARIANTE = 'tres-laminas';
+  var ENDPOINT = '/api/leads';
+  var MENSAGEM_WHATSAPP =
+    'Olá! Acabei de preencher a análise da Worki Digital e gostaria ' +
+    'de falar sobre minha operação.';
+
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  // ---------- analytics ----------
+
+  /* Nada de SDK externo por padrao. As funcoes sao o ponto unico de
+     integracao: quando o META_PIXEL_ID existir, e so plugar aqui. */
+  var analytics = {
+    pageview: function () { dispara('PageView'); },
+    cta: function (onde) { dispara('CTA_Click', { cta: onde }); },
+    formOpen: function () { dispara('Form_Open'); },
+    formStart: function () { dispara('Form_Start'); },
+    lead: function () { dispara('Lead'); },
+    whatsapp: function () { dispara('WhatsApp_Click'); },
+  };
+
+  function dispara(evento, params) {
+    try {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', evento, params || {});
+      }
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', evento, params || {});
+      }
+      if (Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({ evento: evento, ...(params || {}) });
+      }
+    } catch (e) {
+      /* tracking quebrado nunca pode quebrar o formulario */
+    }
+  }
+
+  // Atalhos de selecao. Ficao aqui, e nao dentro de IIFE aninhado,
+  // porque sao usados em varias partes do script.
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  // ---------- UTMs ----------
+
+  var UTMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  var query = new URLSearchParams(window.location.search);
+
+  // ---------- modal ----------
+
+  var modal = $('#modal');
+  var caixa = $('.modal__caixa');
+  var formulario = $('#formulario');
+  var corpo = $('#modal-corpo');
+  var sucesso = $('#sucesso');
+  var progresso = $('#progresso');
+  var progressoTexto = $('#progresso-texto');
+  var progressoBarra = $('#progresso-barra');
+  var botaoEnviar = $('#enviar');
+  var botaoWhatsapp = $('#botao-whatsapp');
+  var barraFixa = $('#barra-fixa');
+
+  var focoAntes = null;
+  var enviando = false;
+  var comecou = false;
+
+  function abrirModal(onde) {
+    if (modal.hidden) {
+      focoAntes = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add('modal-aberto');
+      analytics.formOpen();
+      // Foco no primeiro campo. Com delay porque a animacao compete.
+      setTimeout(function () {
+        var primeiro = formulario.querySelector('input:not([type=radio])');
+        if (primeiro) primeiro.focus({ preventScroll: true });
+      }, 90);
+    }
+    analytics.cta(onde);
+  }
+
+  function fecharModal() {
+    if (modal.hidden) return;
+    modal.hidden = true;
+    document.body.classList.remove('modal-aberto');
+    if (focoAntes && focoAntes.focus) focoAntes.focus({ preventScroll: true });
+  }
+
+  // ---------- CTAs ----------
+
+  $$('[data-cta]').forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      abrirModal(botao.getAttribute('data-cta'));
+    });
+  });
+
+  $$('[data-fechar]').forEach(function (el) {
+    el.addEventListener('click', fecharModal);
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !modal.hidden) fecharModal();
+  });
+
+  // ---------- etapas ----------
+
+  var etapas = $$('.etapa-form');
+  var etapaAtual = 1;
+
+  function mostrarEtapa(n) {
+    etapaAtual = n;
+    etapas.forEach(function (e) {
+      e.hidden = Number(e.getAttribute('data-etapa')) !== n;
+    });
+    progressoTexto.textContent = 'Etapa ' + n + ' de 2';
+    progressoBarra.style.width = n * 50 + '%';
+  }
+
+  $$('[data-avancar]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (validarEtapa(1)) mostrarEtapa(2);
+    });
+  });
+
+  $$('[data-voltar]').forEach(function (b) {
+    b.addEventListener('click', function () { mostrarEtapa(1); });
+  });
+
+  // ---------- validacao ----------
+
+  var RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function digitos(valor) {
+    return String(valor || '').replace(/\D/g, '');
+  }
+
+  function mascaraTelefone(bruto) {
+    var d = digitos(bruto).slice(0, 11);
+    if (d.length <= 2) return d;
+    if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+    return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  }
+
+  function erro(campo, mensagem) {
+    var alvo = document.querySelector('[data-erro="' + campo + '"]');
+    if (alvo) alvo.textContent = mensagem || '';
+    var input = formulario.querySelector('[name="' + campo + '"]');
+    if (input) {
+      if (mensagem) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+    }
+  }
+
+  function valorRadio(nome) {
+    var marcado = formulario.querySelector('input[name="' + nome + '"]:checked');
+    return marcado ? marcado.value : '';
+  }
+
+  function validarEtapa(n) {
+    var ok = true;
+
+    if (n === 1) {
+      var nome = $('#nome').value.trim();
+      if (!nome) { erro('nome', 'Informe seu nome.'); ok = false; }
+      else erro('nome', '');
+
+      var tel = digitos($('#whatsapp').value);
+      // 10 a 13 digitos. O endpoint normaliza com o 55.
+      if (tel.length < 10 || tel.length > 13) {
+        erro('whatsapp', 'Informe um WhatsApp válido com DDD.');
+        ok = false;
+      } else erro('whatsapp', '');
+
+      var email = $('#email').value.trim();
+      if (!email) { erro('email', 'Informe seu e-mail.'); ok = false; }
+      else if (!RE_EMAIL.test(email)) { erro('email', 'E-mail inválido.'); ok = false; }
+      else erro('email', '');
+
+      var ig = $('#instagram').value.trim().replace(/^@/, '');
+      if (!ig) { erro('instagram', 'Informe o Instagram.'); ok = false; }
+      else erro('instagram', '');
+    }
+
+    if (n === 2) {
+      var fat = valorRadio('faturamento');
+      if (!fat) { erro('faturamento', 'Selecione a faixa de faturamento.'); ok = false; }
+      else erro('faturamento', '');
+
+      var cargo = valorRadio('cargo');
+      if (!cargo) { erro('cargo', 'Selecione seu cargo.'); ok = false; }
+      else erro('cargo', '');
+
+      var decisor = valorRadio('decisor');
+      if (!decisor) { erro('decisor', 'Selecione uma opção.'); ok = false; }
+      else erro('decisor', '');
+    }
+
+    return ok;
+  }
+
+  // ---------- mascara e feedback ----------
+
+  var campoTel = $('#whatsapp');
+  campoTel.addEventListener('input', function () {
+    campoTel.value = mascaraTelefone(campoTel.value);
+  });
+
+  $$('#formulario input').forEach(function (input) {
+    input.addEventListener('input', function () {
+      var campo = input.closest('.campo');
+      if (campo && input.value.trim()) campo.classList.add('preenchido');
+      if (!comecou) {
+        comecou = true;
+        analytics.formStart();
+      }
+    });
+  });
+
+  // ---------- envio ----------
+
+  formulario.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (enviando) return;
+
+    if (!validarEtapa(2)) return;
+
+    enviando = true;
+    botaoEnviar.disabled = true;
+    botaoEnviar.textContent = 'ENVIANDO…';
+
+    var corpo_ = {
+      variante: VARIANTE,
+      nome: $('#nome').value.trim(),
+      whatsapp: digitos($('#whatsapp').value),
+      email: $('#email').value.trim().toLowerCase(),
+      instagram: $('#instagram').value.trim(),
+      faturamento: valorRadio('faturamento'),
+      cargo: valorRadio('cargo'),
+      decisor: valorRadio('decisor'),
+      page_url: window.location.href,
+      origem_pagina: 'landing-3-laminas',
+    };
+
+    UTMS.forEach(function (chave) {
+      corpo_[chave] = query.get(chave) || '';
+    });
+    corpo_.fbclid = query.get('fbclid') || '';
+    corpo_.gclid = query.get('gclid') || '';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(corpo_),
+    })
+      .then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, dados: d }; });
+      })
+      .then(function (resposta) {
+        if (!resposta.ok) {
+          throw new Error(resposta.dados.erro || 'Não foi possível enviar agora.');
+        }
+        // O link vem do servidor, montado com WHATSAPP_NUMBER. Sem ele,
+        // a tela de sucesso nao tem para onde levar o lead.
+        analytics.lead();
+
+        progresso.hidden = true;
+        formulario.hidden = true;
+        $('.modal__cabecalho').hidden = true;
+
+        var link = resposta.dados.whatsapp;
+        if (link) {
+          botaoWhatsapp.href = link;
+        } else {
+          botaoWhatsapp.hidden = true;
+        }
+
+        sucesso.hidden = false;
+        botaoWhatsapp.addEventListener('click', function () {
+          analytics.whatsapp();
+        }, { once: true });
+      })
+      .catch(function (erro) {
+        // Falha aqui e falha de verdade: o lead nao foi registrado, e o
+        // formulario precisa ficar preenchido para a pessoa tentar de novo.
+        var aviso = document.createElement('p');
+        aviso.className = 'campo__erro';
+        aviso.style.color = '#e46b6b';
+        aviso.textContent = erro.message + ' Tente novamente.';
+        formulario.appendChild(aviso);
+        enviando = false;
+        botaoEnviar.disabled = false;
+        botaoEnviar.textContent = 'SOLICITAR MINHA ANÁLISE';
+      });
+  });
+
+  // ---------- barra fixa ----------
+
+  /* Aparece depois da primeira lamina. Medido pelo topo do hero saindo
+     da tela, e nao por scroll: hero tem altura variavel. */
+  var hero = $('#lamina-01');
+  if ('IntersectionObserver' in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) barraFixa.hidden = false;
+      });
+    }, { threshold: 0 });
+    observador.observe(hero);
+  } else {
+    barraFixa.hidden = false;
+  }
+
+  analytics.pageview();
+})();
+
+</script>
+</body>
+</html>

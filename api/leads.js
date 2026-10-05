@@ -51,6 +51,13 @@ const CAMPOS_TEXTO = {
   segmento: 160,
   meta_90_dias: 600,
   gargalo_outro: 300,
+  // Da variante de 3 laminas: qualificacao com cargo, instagram e
+  // papel na decisao. Sem cargo e decisor nao da para saber quem
+  // respondeu, so que a empresa tem interesse.
+  cargo: 80,
+  instagram: 80,
+  decisor: 40,
+  origem_pagina: 300,
 };
 
 const OPCOES = {
@@ -69,6 +76,33 @@ const OPCOES = {
     'R$ 10 mil a R$ 30 mil/mês',
     'R$ 30 mil a R$ 50 mil/mês',
     'Acima de R$ 50 mil/mês',
+  ],
+  // Faixas novas da variante de 3 laminas. As duas listas coexistem:
+  // `faturamento` e a lista antiga e `faturamento_3l` a nova, porque
+  // a pagina antiga ja esta no ar com os rotulos dela.
+  faturamento_3l: [
+    'Até R$ 30 mil',
+    'R$ 30 mil a R$ 60 mil',
+    'R$ 60 mil a R$ 100 mil',
+    'R$ 100 mil a R$ 300 mil',
+    'R$ 300 mil a R$ 500 mil',
+    'R$ 500 mil a R$ 1 milhão',
+    'Acima de R$ 1 milhão',
+  ],
+  cargo: [
+    'Sócio / Proprietário',
+    'CEO / Diretor',
+    'Diretor de Marketing',
+    'Diretor Comercial',
+    'Gerente',
+    'Coordenador',
+    'Analista',
+    'Outro',
+  ],
+  decisor: [
+    'SIM, SOU DECISOR',
+    'PARTICIPO DA DECISÃO',
+    'NÃO SOU DECISOR',
   ],
 };
 
@@ -124,6 +158,7 @@ export default async function handler(req, res) {
   }
 
   const d = req.body || {};
+  const variante = soTexto(d.variante, 20);
 
   const nome = soTexto(d.nome, CAMPOS_TEXTO.nome);
   if (!nome) {
@@ -140,12 +175,35 @@ export default async function handler(req, res) {
     return;
   }
 
+  // E-mail e obrigatorio na variante de 3 laminas. Nao e validado na
+  // pagina antiga, que pede e-mail como opcional: exigir aqui quebraria
+  // o envio da pagina que ja esta no ar.
+  if (variante === 'tres-laminas') {
+    const email = soTexto(d.email, 160).toLowerCase();
+    if (!email) {
+      res.status(400).json({ erro: 'informe seu e-mail', campo: 'email' });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      res.status(400).json({ erro: 'e-mail inválido', campo: 'email' });
+      return;
+    }
+  }
+
   const lead = {
     nome,
     whatsapp: telefone,
+    email: soTexto(d.email, 160).toLowerCase(),
     empresa: soTexto(d.empresa, CAMPOS_TEXTO.empresa),
     segmento: soTexto(d.segmento, CAMPOS_TEXTO.segmento),
-    faturamento: opcaoValida(d.faturamento, OPCOES.faturamento),
+    cargo: opcaoValida(d.cargo, OPCOES.cargo),
+    instagram: soTexto(d.instagram, CAMPOS_TEXTO.instagram).replace(/^@/, ''),
+    decisor: opcaoValida(d.decisor, OPCOES.decisor),
+    // O rotulo de faturamento depende da variante, porque as duas
+    // paginas tem faixas diferentes. Valida contra a lista certa.
+    faturamento: variante === 'tres-laminas'
+      ? opcaoValida(d.faturamento, OPCOES.faturamento_3l)
+      : opcaoValida(d.faturamento, OPCOES.faturamento),
     investimento: opcaoValida(d.investimento, OPCOES.investimento),
     gargalo: opcaoValida(d.gargalo, GARGALOS),
     gargalo_outro:
@@ -164,10 +222,15 @@ export default async function handler(req, res) {
     fbclid: soTexto(d.fbclid, 200),
     gclid: soTexto(d.gclid, 200),
 
+    page_url: soTexto(d.page_url || d.url_origem, 500),
     url_origem: soTexto(d.url_origem, 500),
     referer: soTexto(d.referer, 500),
+    origem_pagina: soTexto(d.origem_pagina, CAMPOS_TEXTO.origem_pagina),
+    variante,
     criado_em: new Date().toISOString(),
-    origem_formulario: 'landing-worki-digital',
+    origem_formulario: variante === 'tres-laminas'
+      ? 'landing-worki-3-laminas'
+      : 'landing-worki-digital',
     status: 'novo',
   };
 
